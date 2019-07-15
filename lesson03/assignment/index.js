@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+ 
 // hard-code json data into variable
   var data = [
     {
