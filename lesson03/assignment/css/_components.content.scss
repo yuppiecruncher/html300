@@ -21,6 +21,8 @@ body {
     margin: auto;
     border: 1px $gray solid;
     border-radius: 3px;
+    margin-bottom: 1em;
+    margin-top: 1em;
   }
 }
 // dont want to nest several levels deep, it might be confusing so broke out .info here
