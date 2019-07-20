@@ -1,7 +1,7 @@
 .scene {
-  width: 200px;
-  height: 260px;
-  perspective: 600px;
+  width: 600px;
+  height: 300px;
+  perspective: 2000px;
   font-size: 50px;
   text-align: center;
   vertcal-align: center;
@@ -12,6 +12,9 @@
   position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
+  img {
+    width: 200px;
+  }
 }
 .card:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
