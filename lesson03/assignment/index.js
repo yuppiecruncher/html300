@@ -1,7 +1,8 @@
+// boilerplate for jQuery
 $(document).ready(function(){
- 
+
 // hard-code json data into variable
-  var data = [
+  var data =[
     {
       "name": "Steve Smith",
       "jobTitle": "Project Manage",
@@ -56,9 +57,11 @@ $(document).ready(function(){
     }
   ];
 
-  // create mapper to generate templates with JSON data
+  // create mapper function to generate templates with JSON data
   const datamapper = data.map(function(el) {
-    // builds a card for each object in the data array
+    // method to add a space character to each language in list
+    const languages = el.codeLanguages.map(x => ' ' + x)
+    // builds an HTML string for each object in the data array
     return `
       <div class="card">
         <div class="info">
@@ -75,6 +78,7 @@ $(document).ready(function(){
             <p><b>School: </b>${el.school}</p>
             <p><b>Major: </b>${el.major}</p>
             <p><b>Email: </b>${el.email}</p>
+            <p><b>Languages: </b>${languages}</p>
             <a href="#"><img src="img/linkedin.svg" alt="">${el.linkedInUrl}</a>
           </div>
         </div>
@@ -82,7 +86,7 @@ $(document).ready(function(){
       </div>
       `;
   });
-
+  // append to index.html with selector
   $(".cards").append(datamapper);
 
 });
