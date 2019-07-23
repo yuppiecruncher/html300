@@ -1,10 +1,17 @@
+// background area for single card
+.cards {
+  width: 100%;
+  display: block;
+  background: $text;
+}
+
 .scene {
+  padding: 2em;
+  margin-left: auto;
+  margin-right: auto;
   width: 600px;
   height: 300px;
   perspective: 2000px;
-  font-size: 50px;
-  text-align: center;
-  vertcal-align: center;
 }
 .card {
   width: 100%;
@@ -12,9 +19,6 @@
   position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
-  img {
-    width: 200px;
-  }
 }
 .card:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -24,13 +28,37 @@
   height: 100%;
   width: 100%;
   backface-visibility: hidden;
+  border-radius: 5px;
+
 }
 .card__face--front {
-  background: red;
+  background: $white;
+  text-align: center;
+  .imageContainer img {
+    background-color: $gray;
+    padding: 1em;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px $gray solid;
+    border-radius: 8px;
+  }
+  .recipeTitle {
+    padding-top: 1em;
+    padding-bottom: .5em;
+    text-align: center;
+    font-size: 1.5em;
+    color: $text;
+  }
+  .recipeLink a {
+    text-decoration: none;
+    color: $text;
+    }
 }
 
 .card__face--back {
-  background: blue;
+  background: $white;
   transform: rotateY( 180deg );
 }
 .card.is-flipped {

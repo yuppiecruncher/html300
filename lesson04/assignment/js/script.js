@@ -1,57 +1,88 @@
 $( document ).ready(function() {
 
-  $('.card').click(function(){
-  $('.card').toggleClass('is-flipped');
-  });
 
   // hard-code json data into variable - final project pulls JSON data so might as well set it up here.
-  // TODO: Make this match the JSON template for the recipe API
-  var data =[
+  // NOTE: The search and the recipe details are on separate requests.
+  // Recipe search made against .../api/search
+  // Recipe details are made using rId query against .../api/get
+  var searchResult = [
     {
-      "name": "Steve Smith",
-      "jobTitle": "Project Manage",
-      "company": "Front End Dev Co",
-      "experience": "3 years",
-      "school": "UW",
-      "major": "Marketing",
-      "email": "steve@fedc.com",
-      "linkedInUrl": "steve.linkedinprofile.com",
-      "codeLanguages": [
-          "HTML", "CSS", "JavaScript", ".NET", "C#"
-      ]
-    }];
+      "publisher": "BBC Food",
+      "f2f_url": "http://food2fork.com/view/8c0314",
+      "title": "Chicken and cashew nut stir-fry",
+      "source_url": "http://www.bbc.co.uk/food/recipes/chickenandcashewnuts_89299",
+      "recipe_id": "8c0314",
+      "image_url": "http://static.food2fork.com/chickenandcashewnuts_89299_16x9986b.jpg",
+      "social_rank": 95.91061636245128,
+      "publisher_url": "http://www.bbc.co.uk/food"
+    }
+  ];
 
-// TODO: change this card template to match recipe card and include instructions on the back side.
-  // create mapper function to generate templates with JSON data
-  const datamapper = data.map(function(el) {
-    // method to add a space character to each language in list
-    const languages = el.codeLanguages.map(x => ' ' + x)
-    // builds an HTML string for each object in the data array
+  var getResult = [
+  {
+    "recipe":
+      {"publisher": "BBC Food",
+      "f2f_url": "http://food2fork.com/view/8c0314",
+      "ingredients":
+        ["1 free-range egg",
+        "1 tbsp cornflour",
+        "pinch sea salt",
+        "500g/1lb 2oz skinless chicken breast",
+        "300ml/10fl oz groundnut oil ",
+        "1 onion",
+        "1 yellow pepper",
+        "1 red pepper",
+        "3 tbsp chicken stock",
+        "2-3 tbsp light soy sauce",
+        "2 large spring onions",
+        "4 tbsp roasted cashew",
+        "sea salt and ground white pepper",
+        "steamed jasmine rice"],
+      "source_url": "http://www.bbc.co.uk/food/recipes/chickenandcashewnuts_89299",
+      "recipe_id": "8c0314",
+      "image_url": "http://static.food2fork.com/chickenandcashewnuts_89299_16x9986b.jpg",
+      "social_rank": 95.91061636245128,
+      "publisher_url": "http://www.bbc.co.uk/food",
+      "title": "Chicken and cashew nut stir-fry"}
+    }
+  ];
+
+  // datamapper creates function to generate templates with JSON data and builds an HTML string for each object in the data array
+  const datamapper = getResult.map(function(el) {
+    // Mapper for ingredients into a list and joins them into a string
+      const ingredients = el.recipe.ingredients.map(ingredient => '<li>' + ingredient + '</li>').join('');
     return `
-      <div class="card">
-        <div class="info">
-          <div class="headshot">
-            <img src="img/unsplash-headshot.jpg" alt="">
-          </div>
-          <div class="name">
-            <p><b>${el.name}</b></p>
-            <p><i>${el.jobTitle}</i></p>
-          </div>
-          <div class="persInfo">
-            <p><b>Company: </b>${el.company}</p>
-            <p><b>Experience: </b>${el.experience}</p>
-            <p><b>School: </b>${el.school}</p>
-            <p><b>Major: </b>${el.major}</p>
-            <p><b>Email: </b>${el.email}</p>
-            <p><b>Languages: </b>${languages}</p>
-            <a href="#"><img src="img/linkedin.svg" alt="">${el.linkedInUrl}</a>
+          <div class="scene">
+          <div class="card">
+            <div class="card__face card__face--front">
+              <div class ="imageContainer">
+              <img src="${el.recipe.image_url}" alt="">
+              </div>
+              <div class="recipeTitle">
+              ${el.recipe.title}
+              </div>
+              <div class="recipeLink">
+              <a href="${el.recipe.source_url}">Link to recipe</a>
+              </div>
+
+            </div>
+            <div class="card__face card__face--back">
+              <div class="ingredients">
+              <ul>
+                ${ingredients}
+              </ul>
+
+            </div>
           </div>
         </div>
-
-      </div>
       `;
   });
   // append to index.html with selector
-  // $(".cards").append(datamapper);
+  $(".cards").append(datamapper);
+  // listens for click and toggles class name, executes transform.
+  // TODO: create a listener function that can distinguish cards clicked based on rId value. e.g. toggleId="8c0314"
+  $('.card').click(function(){
+  $('.card').toggleClass('is-flipped');
+  });
 
 });
