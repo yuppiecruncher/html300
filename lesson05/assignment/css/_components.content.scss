@@ -11,3 +11,40 @@ html {
 .main {
     padding: 2rem;
 }
+
+// set grid-area strings
+.header {grid-area: header;}
+.navMenu {grid-area: navMenu;}
+.sidebar {grid-area: sidebar;}
+.mainContent {grid-area: mainContent;}
+.footer {grid-area: footer;}
+
+//// Set grid-template-areas for Mobile: one column, five rows of content
+.main {
+  grid-gap: 1em;
+  display: grid;
+  grid-template-areas:
+  "header"
+  "navMenu"
+  "sidebar"
+  "mainContent"
+  "footer";
+  // Set grid-template-areas for Desktop: two columns, four rows of content
+  @include media-query(lg) {
+    grid-template-areas:
+    "header header"
+    "navMenu navMenu"
+    "sidebar mainContent"
+    "footer footer";
+  }
+}
+// Begin with mobile-first principle. Create collapsed nav
+
+.navMenu {
+  display: flex;
+  flex-direction: column;
+  @include media-query(lg) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
