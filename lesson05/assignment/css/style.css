@@ -362,7 +362,9 @@ html {
   box-sizing: inherit; }
 
 .main {
-  padding: 2rem; }
+  padding: 2rem;
+  max-width: 1040px;
+  margin: auto; }
 
 .header {
   grid-area: header; }
@@ -386,11 +388,13 @@ html {
   @media screen and (min-width: 920px) {
     .main {
       grid-template-areas: "header header" "navMenu navMenu" "sidebar mainContent" "footer footer"; } }
-
-.navMenu {
-  display: flex;
-  flex-direction: column; }
-  @media screen and (min-width: 920px) {
-    .navMenu {
-      flex-direction: row;
-      justify-content: space-around; } }
+  .main .navMenu {
+    display: flex;
+    justify-content: flex-start;
+    background-color: limegreen; }
+    .main .navMenu .navItem {
+      display: flex; }
+    @media screen and (min-width: 920px) {
+      .main .navMenu {
+        justify-content: flex-start;
+        justify-content: space-around; } }
