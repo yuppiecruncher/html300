@@ -353,7 +353,7 @@ td,
 th {
   padding: 0; }
 
-html {
+nav-menuhtml {
   box-sizing: border-box; }
 
 *,
@@ -369,8 +369,8 @@ html {
 .header {
   grid-area: header; }
 
-.navMenu {
-  grid-area: navMenu; }
+.nav-menu {
+  grid-area: nav-menu; }
 
 .sidebar {
   grid-area: sidebar; }
@@ -382,19 +382,51 @@ html {
   grid-area: footer; }
 
 .main {
-  grid-gap: 1em;
   display: grid;
-  grid-template-areas: "header" "navMenu" "sidebar" "mainContent" "footer"; }
-  @media screen and (min-width: 920px) {
+  grid-template-areas: "header" "nav-menu" "sidebar" "mainContent" "footer"; }
+  @media screen and (min-width: 767px) {
     .main {
-      grid-template-areas: "header header" "navMenu navMenu" "sidebar mainContent" "footer footer"; } }
-  .main .navMenu {
+      grid-template-areas: "header header header" "nav-menu nav-menu nav-menu" "sidebar mainContent mainContent" "footer footer footer"; } }
+  .main .nav-menu {
+    background-color: #7acb00; }
+    .main .nav-menu .nav__unorderedList li {
+      list-style: none; }
+      .main .nav-menu .nav__unorderedList li a {
+        text-decoration: none;
+        color: #ffffff; }
+    @media screen and (min-width: 767px) {
+      .main .nav-menu .nav__unorderedList {
+        display: flex;
+        justify-content: space-between;
+        padding: 0; }
+        .main .nav-menu .nav__unorderedList li {
+          padding-left: 1em;
+          padding-right: 1em; } }
+  .main .header {
+    background-color: #F1352B;
+    color: #ffffff;
+    min-height: 6em;
     display: flex;
-    justify-content: flex-start;
-    background-color: limegreen; }
-    .main .navMenu .navItem {
-      display: flex; }
-    @media screen and (min-width: 920px) {
-      .main .navMenu {
-        justify-content: flex-start;
-        justify-content: space-around; } }
+    align-items: center;
+    justify-content: center; }
+  .main .sidebar {
+    background-color: #6e27c5;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20em; }
+  .main .mainContent {
+    background-color: #ff6600;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20em; }
+  .main .footer {
+    background-color: #150f96;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 6em; }
