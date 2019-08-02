@@ -1,17 +1,98 @@
+// set explicit
+
+body,
 html {
-    box-sizing: border-box;
+  height: 100%;
+  background-color: $white;
 }
+// nested .card selector and included mixin for breakpoint set at 450px
+body {
+  // variables set in _settings.variables.scss
+  font-family: $font;
+  margin: 0;
 
-*,
-*:after,
-*:before {
-    box-sizing: inherit;
+  .card {
+    // mixin for responsive design
+    @include desktop {
+      width: 80%;
+    }
+    background-color: $gray;
+    max-width: 90%;
+    margin: auto;
+    border: 1px $gray solid;
+    border-radius: 3px;
+  }
 }
+// dont want to nest several levels deep, it might be confusing so broke out .info here
+.info {
+  // mixin for screens larger than 450px
+  @include desktop {
+    display: grid;
+    // set grid areas so grid can line things up properly
+    .headshot {
+      grid-area: headshot;
+    }
 
-.main {
-    padding: 2rem;
-}
+    .persInfo {
+      grid-area: persInfo;
+    }
 
-h1 {
-    color: $red;  
+    .name {
+      grid-area: name;
+    }
+    grid-template: "headshot persInfo" "name persInfo";
+  }
+  background-color: $white;
+  margin: 2rem;
+  padding: 1rem;
+
+  img {
+    display: block;
+    margin: auto;
+    width: 200px;
+    border-radius: 50%;
+  }
+
+  .name {
+    // nested pretty hard here, but single instance and not hard to understand.
+    text-align: center;
+    padding: 1rem;
+
+    p {
+      margin: 0;
+      color: $text;
+      // decreases 'project manager' text -it appeared slightly smaller than the name in the mockup
+      i {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .persInfo {
+    background-color: $taupe;
+    padding: 1rem;
+    font-size: 0.8rem;
+    // nested unclassed elements for simplicity.
+    p {
+      margin: 0;
+      padding-bottom: 1rem;
+      color: $text;
+    }
+
+    a {
+      margin: 0;
+      padding-bottom: 1rem;
+      color: $text;
+      text-decoration: none;
+    }
+    // had to undo some settings due to unclassed img element. If there were more img elements, I would class them separately
+    img {
+      width: 1.2rem;
+      border-radius: 0;
+      display: inline-block;
+      padding-right: 1rem;
+      vertical-align: bottom;
+      padding-right: 0.5rem;
+    }
+  }
 }
