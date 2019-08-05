@@ -1,5 +1,12 @@
-// Media Query Generator
+// wrote my own media query because I don't understand the generator that was included below
+$desktop: 450px;
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
 
+// Media Query Generator
 @mixin media-query($mq) {
 
     $breakpoint-found: false;
