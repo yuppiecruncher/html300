@@ -32,7 +32,7 @@
             <a class="nav-link" href="index.html">Home</a>
           </li>
           <li class="nav-item pr-5">
-            <a class="nav-link" href="#">Purchase</a>
+            <a class="nav-link" href="purchase.html">Purchase</a>
           </li>
         </ul>
       </div>
@@ -40,6 +40,11 @@
   </nav>
   <main class="portfolio">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="img/evie-s.jpg" class="d-block w-100" alt="Photo by Evie S. on Unsplash">
@@ -51,11 +56,13 @@
           <img src="img/han-chenxu.jpg" class="d-block w-100" alt="Photo by Han Chenxu on Unsplash">
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <!-- added tooltips for carousel -->
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev" data-toggle="tooltip" data-placement="right" title="Previous Slide">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <!-- added tooltips for carousel -->
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next" data-toggle="tooltip" data-placement="right" title="Next Slide">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>

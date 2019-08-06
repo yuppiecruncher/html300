@@ -10,6 +10,7 @@ html {
 
 .main {
     padding: 1rem;
+    color: $darkgray;
 }
 
 // landing page:
@@ -23,11 +24,12 @@ html {
     font-size: 2em;
   }
   blockquote {
-    background-color: rgba(74, 0, 0, 0.5);
+    background-color: $brick;
     border-radius: 5px;
     font-size: 1em;
     font-family: 'Beth Ellen', cursive;
   }
+  // media queries for font sizes on different viewport widths.
   @include media-query(tab) {
     h1 {
       font-size: 5em;
@@ -45,11 +47,54 @@ html {
 
 .navbar {
   div > a {
-    color: rgba(74, 0, 0, 0.5);
+    color: $brick;
   }
 }
 
 .portfolio {
   margin: auto;
   max-width: 60%;
+}
+
+.artistQuote {
+  font-family: 'Rock Salt', cursive;
+  font-size: .7em;
+}
+@include media-query(tab) {
+  .artistQuote {
+    font-size: 1em;
+  }
+}
+@include media-query(xl) {
+  .artistQuote {
+    font-size: 1.3em;
+  }
+}
+
+// carousel customization
+.carousel {
+  border: 1px solid $gray;
+}
+.carousel-inner > .carousel-item {
+   max-height: 800px;
+}
+.carousel-control-prev {
+  background-color: none;
+  transition: .2s;
+}
+.carousel-control-next {
+  background-color: none;
+  transition: .2s;
+}
+.carousel-control-prev:hover {
+  background-color: $gray;
+}
+.carousel-control-next:hover {
+  background-color: $gray;
+}
+
+// purchase page customization
+.purchaseContainer {
+  margin: auto;
+  max-width: 80%;
 }
