@@ -55,7 +55,7 @@ html {
   margin: auto;
   max-width: 60%;
 }
-
+// handles font sizes so quote stays reasonable
 .artistQuote {
   font-family: 'Rock Salt', cursive;
   font-size: .7em;
@@ -78,6 +78,7 @@ html {
 .carousel-inner > .carousel-item {
    max-height: 800px;
 }
+// added hover psuedo class because default icons were invisible against white backgrounds.
 .carousel-control-prev {
   background-color: none;
   transition: .2s;
