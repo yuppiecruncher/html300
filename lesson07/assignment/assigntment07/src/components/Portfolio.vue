@@ -1,15 +1,40 @@
 <template>
-  <div class="portfolio">
-    <h1>{{ msg }}</h1>
-  </div>
+  <div class="artshow container-fluid">
+    <div class="galleryItem row" v-for="artwork in artworks">
+      <div class="imgContainer col-md">
+        <img class="img-fluid" v-bind:src="artwork.img" alt="">
+      </div>
+      <div class="col-md my-auto">
+        <h3>{{artwork.title}}</h3>
+        <p>{{artwork.description}}</p>
+      </div>
+    </div>
+</div>
+
+
 </template>
 
 <script>
 export default {
-  name: 'Portfolio',
   data () {
     return {
-      msg: 'Portfolio Page'
+      artworks: [
+        {
+        title: 'Painting 01',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        img: require('../assets/painting01.jpg')
+        },
+        {
+        title: 'Painting 02',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        img: require('../assets/painting02.jpg')
+        },
+        {
+        title: 'Painting 03',
+        description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        img: require('../assets/painting03.jpg')
+        }
+      ]
     }
   }
 }
@@ -17,18 +42,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+.galleryItem {
+  margin: auto;
+  padding: 1em;
+  max-width: 80%;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.imgContainer {
+  background-color: white;
 }
 </style>

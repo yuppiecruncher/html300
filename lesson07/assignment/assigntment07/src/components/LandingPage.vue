@@ -27,9 +27,6 @@ export default {
 
 <style lang="css" scoped>
 
-/* google font api */
-@import url('https://fonts.googleapis.com/css?family=Beth+Ellen|Rock+Salt&display=swap');
-
 /* landing Page */
 .jumbotron {
   background-image: url("../assets/watercolor.jpg");
