@@ -12,10 +12,10 @@
               <router-link to="/portfolio" class="nav-link">Gallery</router-link>
             </li>
             <li class="nav-item pr-5">
-              <router-link to="/" class="nav-link" >Home</router-link>
+              <router-link to="/checkout" class="nav-link">Purchase</router-link>
             </li>
             <li class="nav-item pr-5">
-              <router-link to="/checkout" class="nav-link">Purchase</router-link>
+              <router-link to="/" class="nav-link" >Home</router-link>
             </li>
           </ul>
         </div>

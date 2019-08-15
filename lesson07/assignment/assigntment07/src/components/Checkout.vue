@@ -49,7 +49,7 @@ export default {
           consigned: false
         },
         {
-          title: 'voluptate velit',
+          title: 'irure',
           description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
           img: require('../assets/painting02.jpg'),
           heading: 'heading two',
