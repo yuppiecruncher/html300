@@ -1,15 +1,72 @@
 <template>
-  <div class="checkout">
-    <h1>{{ msg }}</h1>
+  <div class="purchaseContainer">
+    <div class="accordion" id="accordionExample">
+        <div v-for="item in items" class="card">
+          <div class="card-header" v-bind:id="item.heading">
+            <h2 class="mb-0">
+              <button class="btn btn-link" type="button" data-toggle="collapse" v-bind:data-target="item.collapse" aria-expanded="true" aria-controls="collapseOne">
+                {{ item.title }}
+              </button>
+            </h2>
+          </div>
+
+          <div v-bind:id="item.collapseTarget" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              <div class="row my-4">
+                <div class="col-md-8">
+                  <h2 class="font-weight-bold mb-3 black-text">Description.</h2>
+                  <p class="mb-0">{{ item.description }}</p>
+                  <button v-on:click="item.consigned =! item.consigned" class="btn btn-secondary" href="#">Consign</button>
+                  <p v-if="item.consigned" class="alert alert-success" >This painting has been consigned</p>
+                  <p v-else>This painting is available for consignment</p>
+                </div>
+                <div class="col-md-4 mt-3 pt-2">
+                  <div class="view z-depth-1">
+                    <!-- fluid imgs -->
+                    <img v-bind:src="item.img" alt="" class="img-fluid">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Checkout',
   data () {
     return {
-      msg: 'Checkout Page'
+      items: [
+        {
+          title: 'voluptate velit',
+          description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+          img: require('../assets/painting01.jpg'),
+          heading: 'heading one',
+          collapse: '#collapseOne',
+          collapseTarget: 'collapseOne',
+          consigned: false
+        },
+        {
+          title: 'voluptate velit',
+          description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+          img: require('../assets/painting02.jpg'),
+          heading: 'heading two',
+          collapse: '#collapseTwo',
+          collapseTarget: 'collapseTwo',
+          consigned: false
+        },
+        {
+          title: 'reprehenderit',
+          description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+          img: require('../assets/painting03.jpg'),
+          heading: 'heading three',
+          collapse: '#collapseThree',
+          collapseTarget: 'collapseThree',
+          consigned: false
+        }
+      ]
     }
   }
 }
@@ -17,18 +74,15 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+
+/* purchase page customization */
+.purchaseContainer {
+  margin: auto;
+  max-width: 80%;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+button {
+  margin: 1em;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>
