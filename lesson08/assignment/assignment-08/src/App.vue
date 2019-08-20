@@ -1,7 +1,7 @@
 <template>
   <div id="app">
       <nav-bar></nav-bar>
-      <!-- in order to pass the props to only the portfolio component -->
+      <!-- in order to pass the props to the portfolio component -->
       <router-view :artworks="artworks"></router-view>
   </div>
 </template>
