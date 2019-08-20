@@ -1,6 +1,12 @@
 export default {
-  computed: {
-    border: function (){
-      alert("blog.js hooked up!");
+  data() {
+    return {
+      borderOn:false
+    }
+  },
+  methods: {
+    toggleBorderOn() {
+      this.borderOn = !this.borderOn;
+    }
   }
 }

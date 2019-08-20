@@ -2,7 +2,8 @@
   <div class="artshow container-fluid">
     <div class="galleryItem row" v-for="artwork in artworks">
       <div class="imgContainer col-md">
-        <img v-bind:class="{ border:border, 'img-fluid'}" :src="artwork.img" :alt="artwork.altText">
+        <!-- toggleBorderOn emits to method that toggles true/false for key: borderOn class 'img-fluid' remains constant, but imgBorder class is added on borderOn:true-->
+        <img v-on:click="toggleBorderOn" class="img-fluid" v-bind:class="{ imgBorder: borderOn }" :src="artwork.img" :alt="artwork.altText" title="Click to toggle a border">
       </div>
       <div class="col-md my-auto">
         <h3>{{artwork.title}}</h3>
@@ -15,17 +16,16 @@
 </template>
 
 <script>
+// import the mixin
+import border from '../mixins/border';
+
 export default {
   props: ['artworks'],
-  data () {
-    border: true,
-    return {
-    }
-  }
+  // abstracted data and methods properties to ../mixins/border.js
+  mixins:[border]
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .galleryItem {
   margin: auto;
@@ -36,7 +36,7 @@ export default {
   background-color: white;
 }
 
-.border {
-  border: 1px solid red;
+.imgBorder {
+  border: 2em solid rgb(121, 146, 186);
 }
 </style>
