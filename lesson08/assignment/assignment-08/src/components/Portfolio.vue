@@ -2,7 +2,7 @@
   <div class="artshow container-fluid">
     <div class="galleryItem row" v-for="artwork in artworks">
       <div class="imgContainer col-md">
-        <img class="img-fluid" v-bind:src="artwork.img" alt="">
+        <img v-bind:class="{ border:border, 'img-fluid'}" :src="artwork.img" :alt="artwork.altText">
       </div>
       <div class="col-md my-auto">
         <h3>{{artwork.title}}</h3>
@@ -18,6 +18,7 @@
 export default {
   props: ['artworks'],
   data () {
+    border: true,
     return {
     }
   }
@@ -33,5 +34,9 @@ export default {
 }
 .imgContainer {
   background-color: white;
+}
+
+.border {
+  border: 1px solid red;
 }
 </style>
