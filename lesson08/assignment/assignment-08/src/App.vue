@@ -1,6 +1,7 @@
 <template>
   <div id="app">
       <nav-bar></nav-bar>
+      <portfolio :artworks="artworks"></portfolio>
     <router-view/>
   </div>
 </template>
@@ -12,6 +13,27 @@ import NavBar from './components/NavBar.vue'
 export default {
   components: {
     'nav-bar': NavBar
+  },
+  data() {
+    return {
+      artworks: [
+        {
+        title: 'Painting 01',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        img: require('./assets/painting01.jpg')
+        },
+        {
+        title: 'Painting 02',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        img: require('./assets/painting02.jpg')
+        },
+        {
+        title: 'Painting 03',
+        description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        img: require('./assets/painting03.jpg')
+        }
+      ]
+    }
   },
   name: 'App'
 }
