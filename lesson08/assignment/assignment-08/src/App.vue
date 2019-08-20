@@ -1,21 +1,20 @@
 <template>
   <div id="app">
       <nav-bar></nav-bar>
-      <portfolio :artworks="artworks"></portfolio>
-    <router-view/>
+      <!-- in order to pass the props to only the portfolio component -->
+      <router-view :artworks="artworks"></router-view>
   </div>
 </template>
 
 <script>
 
 import NavBar from './components/NavBar.vue'
-import Portfolio from './components/Portfolio.vue'
 
 export default {
   components: {
     'nav-bar': NavBar,
-    'portfolio': Portfolio
   },
+  // abstracted image markup from portfolio.vue component
   data() {
     return {
       artworks: [
@@ -23,6 +22,7 @@ export default {
         title: 'Painting 01',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         img: require('./assets/painting01.jpg'),
+        // added altText since assignment 07
         altText: 'Watercolor flowers, mostly red and pink hues.'
         },
         {

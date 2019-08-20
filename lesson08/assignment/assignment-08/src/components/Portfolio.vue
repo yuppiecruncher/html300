@@ -3,6 +3,7 @@
     <div class="galleryItem row" v-for="artwork in artworks">
       <div class="imgContainer col-md">
         <!-- toggleBorderOn emits to method that toggles true/false for key: borderOn class 'img-fluid' remains constant, but imgBorder class is added on borderOn:true-->
+        <!-- added tooltip -->
         <img v-on:click="toggleBorderOn" class="img-fluid" v-bind:class="{ imgBorder: borderOn }" :src="artwork.img" :alt="artwork.altText" title="Click to toggle a border">
       </div>
       <div class="col-md my-auto">
@@ -11,8 +12,6 @@
       </div>
     </div>
 </div>
-
-
 </template>
 
 <script>
@@ -20,6 +19,8 @@
 import border from '../mixins/border';
 
 export default {
+  // abstracted image markup to a prop being pushed from parent App.vue
+  // recieve prop from parent
   props: ['artworks'],
   // abstracted data and methods properties to ../mixins/border.js
   mixins:[border]
