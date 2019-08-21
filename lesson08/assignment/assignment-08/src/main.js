@@ -8,6 +8,11 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 Vue.config.productionTip = false
 
+// Filters:
+Vue.filter('to-uppercase', function(value){
+  return value.toUpperCase()
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

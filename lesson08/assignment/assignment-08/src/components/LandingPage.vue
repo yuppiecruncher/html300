@@ -1,6 +1,7 @@
 <template>
   <div class="jumbotron">
-        <h1 class="display-4">{{title}}</h1>
+    <!-- created filter in main.js -->
+        <h1 class="display-4">{{title | to-uppercase}}</h1>
         <router-link to="/about" class="btn btn-light btn-lg" href="about.html" role="button">Learn more</router-link>
         <hr class="my-4">
         <blockquote class="blockquote text-center p-3">
@@ -16,6 +17,7 @@ export default {
   data () {
     return {
       msg: 'Landing Page',
+      // change to uppercase using filter
       title: 'Dan Smith Watercolors',
       quote: "Self-expression is a hallmark of an artist, of art, to get something off one's chest, to sing one's song. So that element is present in all art. It is the key to even standing up and saying, 'Hey, listen to me.' Self-expression can be based on looking at the world and making observations about it.",
       author: 'George Carlin ',
@@ -38,6 +40,7 @@ export default {
 h1 {
   font-family: 'Rock Salt', cursive;
   font-size: 2em;
+  padding: 2em;
 }
 
 blockquote {
