@@ -21,6 +21,7 @@ import border from '../mixins/border';
 export default {
   // abstracted image markup to a prop being pushed from parent App.vue
   // recieve prop from parent
+  // Added prop validation
   props: {
     artworks: {
       type: Array
