@@ -13,7 +13,7 @@ gulp.task('sass', function() {
         .pipe(sass())
         .pipe(
             autoprefix({
-                browsers: ['> .5%'],
+                Browserslist: ['> .5%'],
             })
         )
         .pipe(minifycss({ compatibility: 'ie8' }))
