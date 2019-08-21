@@ -1,4 +1,4 @@
-html {
+nav-menuhtml {
     box-sizing: border-box;
 }
 
@@ -8,6 +8,100 @@ html {
     box-sizing: inherit;
 }
 
+// default to max-width in case screen is huge. Centered in viewport looks nice to me.
 .main {
     padding: 2rem;
+    max-width: 1040px;
+    margin: auto;
+}
+
+// set grid-area keywords
+.header {grid-area: header;}
+.nav-menu {grid-area: nav-menu;}
+.sidebar {grid-area: sidebar;}
+.mainContent {grid-area: mainContent;}
+.footer {grid-area: footer;}
+
+//// Set grid-template-areas for Mobile: one column, five rows of content
+.main {
+  display: grid;
+  grid-template-areas:
+  "header"
+  "nav-menu"
+  "sidebar"
+  "mainContent"
+  "footer";
+  // Set grid-template-areas for Desktop: three columns, four rows of content tab =768px
+  @include media-query(mobile) {
+    grid-template-areas:
+    "header header header"
+    "nav-menu nav-menu nav-menu"
+    // sidebar looks like it should take up about 1/3 of the row. I could have achieved this through using grid-template-columns and grid-template-rows with autofill and repeat but template-areas is much clearer for me.
+    "sidebar mainContent mainContent"
+    "footer footer footer";
+  }
+  .nav-menu {
+    background-color: $green;
+    // Begin with mobile-first principle. Create collapsed nav for mobile viewport
+    .nav__unorderedList{
+      li {
+        list-style: none;
+        a {
+          text-decoration: none;
+          color: $white;
+        }
+      }
+    }
+    // Expanded  horizontal nav menu for large viewport tab =768px actual 845?
+    @include media-query(mobile) {
+      .nav__unorderedList{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        li {
+          padding-left: 1em;
+          padding-right: 1em;
+        }
+      }
+    }
+  }
+
+// all containers are given some height to match the mockup. The min-height will be removed after content gets filled in.
+// all content aligned with flex
+  .header {
+    background-color: $red;
+    color: $white;
+    min-height: 6em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar{
+    background-color: $purple;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20em;
+  }
+
+  .mainContent {
+    background-color: $orange;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 20em;
+  }
+
+  .footer {
+    background-color: $blue;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 6em;
+  }
+
 }
