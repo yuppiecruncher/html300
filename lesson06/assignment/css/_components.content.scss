@@ -9,5 +9,93 @@ html {
 }
 
 .main {
-    padding: 2rem;
+    padding: 1rem;
+    color: $darkgray;
+}
+
+// landing page:
+.jumbotron {
+  background-image: url("../img/watercolor.jpg");
+  background-size: cover;
+  text-align: center;
+  color: white;
+  h1 {
+    font-family: 'Rock Salt', cursive;
+    font-size: 2em;
+  }
+  blockquote {
+    background-color: $brick;
+    border-radius: 5px;
+    font-size: 1em;
+    font-family: 'Beth Ellen', cursive;
+  }
+  // media queries for font sizes on different viewport widths.
+  @include media-query(tab) {
+    h1 {
+      font-size: 5em;
+    }
+    blockquote {
+      font-size: 3em;
+    }
+  }
+  @include media-query(xl) {
+    h1 {
+      font-size: 10em;
+    }
+  }
+}
+
+.navbar {
+  div > a {
+    color: $brick;
+  }
+}
+
+.portfolio {
+  margin: auto;
+  max-width: 60%;
+}
+// handles font sizes so quote stays reasonable
+.artistQuote {
+  font-family: 'Rock Salt', cursive;
+  font-size: .7em;
+}
+@include media-query(tab) {
+  .artistQuote {
+    font-size: 1em;
+  }
+}
+@include media-query(xl) {
+  .artistQuote {
+    font-size: 1.3em;
+  }
+}
+
+// carousel customization
+.carousel {
+  border: 1px solid $gray;
+}
+.carousel-inner > .carousel-item {
+   max-height: 800px;
+}
+// added hover psuedo class because default icons were invisible against white backgrounds.
+.carousel-control-prev {
+  background-color: none;
+  transition: .2s;
+}
+.carousel-control-next {
+  background-color: none;
+  transition: .2s;
+}
+.carousel-control-prev:hover {
+  background-color: $gray;
+}
+.carousel-control-next:hover {
+  background-color: $gray;
+}
+
+// purchase page customization
+.purchaseContainer {
+  margin: auto;
+  max-width: 80%;
 }
