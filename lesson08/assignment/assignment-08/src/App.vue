@@ -2,7 +2,11 @@
   <div id="app">
       <nav-bar></nav-bar>
       <!-- in order to pass the props to the portfolio component -->
-      <router-view :artworks="artworks"></router-view>
+      <router-view :artworks="artworks">
+        <header-slot>
+          <h1 class="slottedHeader">Select a painting for consignment</h1>
+        </header-slot>
+      </router-view>
   </div>
 </template>
 
@@ -55,5 +59,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 0;
+}
+.slottedHeader {
+  color: gray;
+  padding: 2em;
 }
 </style>

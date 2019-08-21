@@ -1,36 +1,40 @@
 <template>
-  <div class="purchaseContainer">
-    <div class="accordion" id="accordionExample">
-        <div v-for="item in items" class="card">
-          <div class="card-header" v-bind:id="item.heading">
-            <h2 class="mb-0">
-              <button class="btn btn-link" type="button" data-toggle="collapse" v-bind:data-target="item.collapse" aria-expanded="true" aria-controls="collapseOne">
-                {{ item.title }}
-              </button>
-            </h2>
-          </div>
+  <div class="slotContainer">
+    <!-- slot required wrapping the entire accordion with a div so that the slot wouldn't be the root element. This was necessary because I wanted the element outside my original purchaseContainer div and at the top of the checkout page. -->
+    <slot></slot>
+    <div class="purchaseContainer">
+      <div class="accordion" id="accordionExample">
+          <div v-for="item in items" class="card">
+            <div class="card-header" v-bind:id="item.heading">
+              <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" v-bind:data-target="item.collapse" aria-expanded="true" aria-controls="collapseOne">
+                  {{ item.title }}
+                </button>
+              </h2>
+            </div>
 
-          <div v-bind:id="item.collapseTarget" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body">
-              <div class="row my-4">
-                <div class="col-md-8">
-                  <h2 class="font-weight-bold mb-3 black-text">Description.</h2>
-                  <p class="mb-0">{{ item.description }}</p>
-                  <button v-on:click="item.consigned =! item.consigned" class="btn btn-secondary" href="#">Consign</button>
-                  <p v-if="item.consigned" class="alert alert-success" >This painting has been consigned</p>
-                  <p v-else>This painting is available for consignment</p>
-                </div>
-                <div class="col-md-4 mt-3 pt-2">
-                  <div class="view z-depth-1">
-                    <!-- fluid imgs -->
-                    <img v-bind:src="item.img" alt="" class="img-fluid">
+            <div v-bind:id="item.collapseTarget" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="row my-4">
+                  <div class="col-md-8">
+                    <h2 class="font-weight-bold mb-3 black-text">Description.</h2>
+                    <p class="mb-0">{{ item.description }}</p>
+                    <button v-on:click="item.consigned =! item.consigned" class="btn btn-secondary" href="#">Consign</button>
+                    <p v-if="item.consigned" class="alert alert-success" >This painting has been consigned</p>
+                    <p v-else>This painting is available for consignment</p>
+                  </div>
+                  <div class="col-md-4 mt-3 pt-2">
+                    <div class="view z-depth-1">
+                      <!-- fluid imgs -->
+                      <img v-bind:src="item.img" alt="" class="img-fluid">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+    </div>
   </div>
 </template>
 
