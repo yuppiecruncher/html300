@@ -21,7 +21,11 @@ import border from '../mixins/border';
 export default {
   // abstracted image markup to a prop being pushed from parent App.vue
   // recieve prop from parent
-  props: ['artworks'],
+  props: {
+    artworks: {
+      type: Array
+    }
+  },
   // abstracted data and methods properties to ../mixins/border.js
   mixins:[border]
 }
