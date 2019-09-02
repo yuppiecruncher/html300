@@ -16,7 +16,7 @@
 
 <script>
 // import the mixin
-import border from '../assets/mixins/border';
+import border from '../assets/mixins/border.js';
 export default {
   // abstracted image markup to a prop being pushed from parent App.vue
   // recieve prop from parent
@@ -26,7 +26,7 @@ export default {
       type: Array
     }
   },
-  // abstracted data and methods properties to ../mixins/border.js
+  // abstracted data and methods properties to ../assets/mixins/border.js
   mixins:[border]
 }
 </script>
