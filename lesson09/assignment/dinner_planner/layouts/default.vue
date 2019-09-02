@@ -2,11 +2,11 @@
   <div id="app">
       <nav-bar></nav-bar>
       <!-- in order to pass the props to the portfolio component -->
-      <nuxt :artworks="artworks">
+      <router-view :artworks="artworks">
         <header-slot>
           <h1 class="slottedHeader">Select a painting for consignment</h1>
         </header-slot>
-      </nuxt>
+      </router-view>
   </div>
 </template>
 

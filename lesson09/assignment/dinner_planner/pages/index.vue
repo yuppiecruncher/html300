@@ -1,7 +1,7 @@
 <template>
   <div class="jumbotron">
     <!-- created filter in main.js -->
-        <h1 class="display-4">{{title | to-uppercase}}</h1>
+        <h1 class="display-4">{{title}}</h1>
         <nuxt-link to="/about" class="btn btn-light btn-lg" href="about.html" role="button">Learn more</nuxt-link>
         <hr class="my-4">
         <blockquote class="blockquote text-center p-3">
