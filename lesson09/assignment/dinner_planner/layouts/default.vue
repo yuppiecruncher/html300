@@ -1,55 +1,64 @@
 <template>
-  <div>
-    <nuxt />
+  <div id="app">
+      <nav-bar></nav-bar>
+      <!-- in order to pass the props to the portfolio component -->
+      <nuxt :artworks="artworks">
+        <header-slot>
+          <h1 class="slottedHeader">Select a painting for consignment</h1>
+        </header-slot>
+      </nuxt>
   </div>
 </template>
 
+<script>
+import NavBar from './components/NavBar.vue'
+export default {
+  components: {
+    'nav-bar': NavBar,
+  },
+  // abstracted image markup from portfolio.vue component
+  data() {
+    return {
+      artworks: [
+        {
+        title: 'Painting 01',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        img: require('./assets/painting01.jpg'),
+        // added altText since assignment 07
+        altText: 'Watercolor flowers, mostly red and pink hues.'
+        },
+        {
+        title: 'Painting 02',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        img: require('./assets/painting02.jpg'),
+        altText: "Watercolor flowers, mostly blue and white hues."
+        },
+        {
+        title: 'Painting 03',
+        description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+        img: require('./assets/painting03.jpg'),
+        altText: "Watercolor plants, mostly blue and brown hues."
+        }
+      ]
+    }
+  },
+  name: 'App'
+}
+</script>
+
 <style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
+/* google font api */
+@import url('https://fonts.googleapis.com/css?family=Beth+Ellen|Rock+Salt&display=swap');
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 0;
 }
-
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.slottedHeader {
+  color: gray;
+  padding: 2em;
 }
 </style>
