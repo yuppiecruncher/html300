@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue'
+import NavBar from '../pages/NavBar.vue'
 export default {
   components: {
     'nav-bar': NavBar,
@@ -23,20 +23,20 @@ export default {
         {
         title: 'Painting 01',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        img: require('./assets/painting01.jpg'),
+        img: require('../assets/painting01.jpg'),
         // added altText since assignment 07
         altText: 'Watercolor flowers, mostly red and pink hues.'
         },
         {
         title: 'Painting 02',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        img: require('./assets/painting02.jpg'),
+        img: require('../assets/painting02.jpg'),
         altText: "Watercolor flowers, mostly blue and white hues."
         },
         {
         title: 'Painting 03',
         description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-        img: require('./assets/painting03.jpg'),
+        img: require('../assets/painting03.jpg'),
         altText: "Watercolor plants, mostly blue and brown hues."
         }
       ]
