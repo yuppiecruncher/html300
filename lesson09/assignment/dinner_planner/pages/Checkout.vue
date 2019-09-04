@@ -7,7 +7,7 @@
           <div v-for="item in items" class="card">
             <div class="card-header" v-bind:id="item.heading">
               <h2 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" v-bind:data-target="item.collapse" aria-expanded="true" aria-controls="collapseOne">
+                <button class="btn btn-link" type="button" data-toggle="collapse" v-bind:data-target="item.collapse" aria-expanded="true" v-bind:aria-controls="item.collapse">
                   {{ item.title }}
                 </button>
               </h2>

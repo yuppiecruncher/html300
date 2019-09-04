@@ -1,81 +1,46 @@
 <template>
-  <div class="container-fluid">
-    <div class="row">
-      <!-- Size SM containers -->
-      <div class="col-sm col-md col-lg">
-        <!-- fluid img container -->
-        <img class="img-fluid" v-bind:src="quoteImage" alt="Photo by Evie S. on Unsplash">
+  <div class="artshow container-fluid">
+    <div class="galleryItem row" v-for="artwork in artworks">
+      <div class="imgContainer col-md">
+        <!-- toggleBorderOn emits to method that toggles true/false for key: borderOn class 'img-fluid' remains constant, but imgBorder class is added on borderOn:true-->
+        <!-- added tooltip -->
+        <img v-on:click="toggleBorderOn" class="img-fluid" v-bind:class="{ imgBorder: borderOn }" :src="artwork.img" :alt="artwork.altText" title="Click to toggle a border">
       </div>
-      <div class="col-sm text-center my-auto">
-        <span class="artistQuote my-auto">{{artistQuote}}</span>
-      </div>
-    </div>
-    <div class="aboutContainer">
-      <div class="row">
-        <!-- Size MD containers -->
-        <div class="col-md">
-          <img class="selfPortrait img-fluid" v-bind:src="selfPortraitImage" alt="">
-        </div>
-        <div class="col-md my-auto">
-          <h4 class="text-center">Methods:</h4>
-          <blockquote class="blockquote">
-            <p class="mb-0">{{blockquote}}</p>
-          </blockquote>
-        </div>
+      <div class="col-md my-auto">
+        <h3>{{artwork.title}}</h3>
+        <p>{{artwork.description}}</p>
       </div>
     </div>
-    <div class="aboutContainer">
-      <div class="row">
-        <!-- Size LG containers -->
-        <div class="col-lg my-auto p-5">
-          <h4 class="text-center">Critiques:</h4>
-          <blockquote class="blockquote text-center">
-            <p class="mb-0">{{critique}}</p>
-            <footer class="blockquote-footer">{{critiqueAuthor}}<cite title="Source Title">{{critiqueSource}}</cite></footer>
-          </blockquote>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
 </template>
 
 <script>
+// import the mixin
+import border from '../assets/mixins/border.js';
 export default {
-  name: 'About',
-  data () {
-    return {
-      msg: 'About Page',
-      artistQuote: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      blockquote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.',
-      critique: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.',
-      critiqueAuthor: 'Someone famous in ',
-      critiqueSource: 'Source Title',
-      quoteImage: require('../assets/aboutPainting.jpg'),
-      selfPortraitImage: require('../assets/selfPortrait.jpg')
+  // abstracted image markup to a prop being pushed from parent App.vue
+  // recieve prop from parent
+  // Added prop validation
+  props: {
+    artworks: {
+      type: Array
     }
-  }
+  },
+  // abstracted data and methods properties to ../assets/mixins/border.js
+  mixins:[border]
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/* handles font sizes so quote stays reasonable */
-.artistQuote {
-  font-family: 'Rock Salt', cursive;
-  font-size: .7em;
-}
-.selfPortrait {
-  max-width: 20em;
+.galleryItem {
+  margin: auto;
   padding: 1em;
+  max-width: 80%;
 }
-@include media-query(tab) {
-  .artistQuote {
-    font-size: 1em;
-  }
+.imgContainer {
+  background-color: white;
 }
-@include media-query(xl) {
-  .artistQuote {
-    font-size: 1.3em;
-  }
+.imgBorder {
+  border: 2em solid rgb(121, 146, 186);
 }
 </style>

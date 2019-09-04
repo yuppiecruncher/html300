@@ -6,7 +6,7 @@
         <hr class="my-4">
         <blockquote class="blockquote text-center p-3">
           <p class="mb-0">{{quote}}</p>
-          <footer class="blockquote-footer">{{author}}<cite title="Source Title">{{source}}</cite></footer>
+
         </blockquote>
       </div>
 </template>
@@ -18,8 +18,8 @@ export default {
     return {
       msg: 'Landing Page',
       // change to uppercase using filter
-      title: 'Dan Smith Watercolors',
-      quote: "Self-expression is a hallmark of an artist, of art, to get something off one's chest, to sing one's song. So that element is present in all art. It is the key to even standing up and saying, 'Hey, listen to me.' Self-expression can be based on looking at the world and making observations about it.",
+      title: 'Dinner Planner',
+      quote: 'A simple dinner planner app that puts hundreds of recipe ideas in your hands.',
       author: 'George Carlin ',
       source: 'Psychology Today'
     }
@@ -30,21 +30,21 @@ export default {
 <style lang="css" scoped>
 /* landing Page */
 .jumbotron {
-  background-image: url("../assets/watercolor.jpg");
+  background-image: url("../assets/landingImg.jpg");
   background-size: cover;
   text-align: center;
   color: white;
 }
 h1 {
-  font-family: 'Rock Salt', cursive;
-  font-size: 2em;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-size: 5em;
   padding: 2em;
 }
 blockquote {
-  background-color: rgba(74, 0, 0, 0.5);
+  background-color: rgba(102, 102, 102, 0.94);
   border-radius: 5px;
   font-size: 1em;
-  font-family: 'Beth Ellen', cursive;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
   /* media queries for font sizes on different viewport widths. */
 @include media-query(tab) {

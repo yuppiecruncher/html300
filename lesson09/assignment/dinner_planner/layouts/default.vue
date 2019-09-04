@@ -21,23 +21,23 @@ export default {
     return {
       artworks: [
         {
-        title: 'Painting 01',
+        title: 'Elegant Made Easy',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        img: require('../assets/painting01.jpg'),
+        img: require('../assets/gallery01.jpg'),
         // added altText since assignment 07
-        altText: 'Watercolor flowers, mostly red and pink hues.'
+        altText: 'Fancy dinner.'
         },
         {
-        title: 'Painting 02',
+        title: 'Family Dinner Planning',
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        img: require('../assets/painting02.jpg'),
-        altText: "Watercolor flowers, mostly blue and white hues."
+        img: require('../assets/gallery02.jpg'),
+        altText: "Tabletop full of delicious food."
         },
         {
-        title: 'Painting 03',
+        title: 'Top Rated Recipes',
         description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-        img: require('../assets/painting03.jpg'),
-        altText: "Watercolor plants, mostly blue and brown hues."
+        img: require('../assets/gallery03.jpg'),
+        altText: "Woman enjoying her meal."
         }
       ]
     }
@@ -48,7 +48,6 @@ export default {
 
 <style>
 /* google font api */
-@import url('https://fonts.googleapis.com/css?family=Beth+Ellen|Rock+Salt&display=swap');
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
