@@ -2,6 +2,8 @@
   <div class="recipeSuggestion container-fluid">
     <div class="recipeItem row" v-for="recipe in list.recipes.slice(0,3)">
       <div class="imgContainer col-md">
+        <!-- toggleBorderOn emits to method that toggles true/false for key: borderOn class 'img-fluid' remains constant, but imgBorder class is added on borderOn:true-->
+        <!-- added tooltip -->
         <img class="img-fluid" :src="recipe.image_url" :alt="recipe.title">
       </div>
       <div class="col-md my-auto">
