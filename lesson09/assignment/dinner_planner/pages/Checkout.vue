@@ -46,7 +46,7 @@ export default {
         {
           title: 'voluptate velit',
           description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-          img: require('../assets/painting01.jpg'),
+          img: require('../assets/gallery01.jpg'),
           heading: 'heading one',
           collapse: '#collapseOne',
           collapseTarget: 'collapseOne',
@@ -55,7 +55,7 @@ export default {
         {
           title: 'irure',
           description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-          img: require('../assets/painting02.jpg'),
+          img: require('../assets/gallery02.jpg'),
           heading: 'heading two',
           collapse: '#collapseTwo',
           collapseTarget: 'collapseTwo',
@@ -64,7 +64,7 @@ export default {
         {
           title: 'reprehenderit',
           description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-          img: require('../assets/painting03.jpg'),
+          img: require('../assets/gallery03.jpg'),
           heading: 'heading three',
           collapse: '#collapseThree',
           collapseTarget: 'collapseThree',

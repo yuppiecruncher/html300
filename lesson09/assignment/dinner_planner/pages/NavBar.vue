@@ -14,6 +14,9 @@
             <li class="nav-item pr-5">
               <nuxt-link to="/checkout" class="nav-link">Search for Recipes</nuxt-link>
             </li>
+            <li class="nav-item pr-5">
+              <nuxt-link to="/recipe" class="nav-link">Recipes</nuxt-link>
+            </li>
           </ul>
         </div>
       </div>
