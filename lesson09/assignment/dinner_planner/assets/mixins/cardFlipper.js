@@ -4,6 +4,7 @@ export default {
       isFlipped:false
     }
   },
+  // toggles '.isFlipped'
   methods: {
     cardFlipper() {
       this.isFlipped = !this.isFlipped;
