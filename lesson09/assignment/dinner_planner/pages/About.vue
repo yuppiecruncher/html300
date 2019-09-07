@@ -1,28 +1,40 @@
 <template>
-<div class="cards">
-  <div v-for="recipe in list.recipes" class="scene">
-    <div v-on:click="cardFlipper" v-bind:class="{container: true, card: true, isFlipped: isFlipped}" title="Click to flip the card over">
-        <div class="row card__face card__face--front">
-          <div class ="col-md-6 imageContainer">
-          <img class="img-fluid" :src="recipe.image_url" alt="">
+  <div class="cards">
+    <div
+    class="scene"
+    v-for="(recipe, index) in searchList.recipes.slice(0, 3)"
+    >
+      <div
+      @click="cardFlipper(event, recipe.recipe_id)"
+      v-bind:class="{container: true, card: true, isFlipped: isFlipped}"
+      title="Click to flip the card over"
+      >
+          <div class="card__face card__face--front">
+            <div class="row">
+              <div class="col-md recipeTitle">
+                {{recipe.title}}
+              </div>
+            </div>
+            <div class="row">
+              <div class ="col-md-6 imageContainer">
+                <img class="img-thumbnail" :src="recipe.image_url" alt="">
+              </div>
+              <div class="col-md recipeLink">
+                <p class="recipeTitle">From: {{recipe.publisher}}</p>
+                <a :href="recipe.source_url">Link to recipe</a>
+              </div>
+            </div>
           </div>
-          <div class="col-md recipeTitle">
-          {{recipe.title}}
+          <div class="row card__face card__face--back">
+            <div class="col-md ingredients">
+            <ul>
+              <h3>Ingredients from API: </h3>
+            </ul>
           </div>
-          <div class="col-md recipeLink">
-          <a :href="recipe.source_url">Link to recipe</a>
-          </div>
-        </div>
-        <div class="row card__face card__face--back">
-          <div class="col-md ingredients">
-          <ul>
-            {{recipe.social_rank}}
-          </ul>
         </div>
       </div>
     </div>
   </div>
-</div>
 
 </template>
 
@@ -34,7 +46,7 @@ export default {
   mixins:[cardFlipper],
   data() {
     return {
-      list: {
+      searchList: {
         "count": 30,
         "recipes": [
           {
@@ -100,6 +112,7 @@ export default {
   position: relative;
   transition: transform 1s;
   transform-style: preserve-3d;
+  margin-top: 1em;
 }
 .card:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -110,7 +123,6 @@ export default {
   width: 100%;
   backface-visibility: hidden;
   border-radius: 5px;
-
 }
 .card__face--front {
   background: #ffffff;
@@ -119,21 +131,20 @@ export default {
 .imageContainer img {
   margin: auto;
   background-color: #F3F4F8;
-  padding: 1em;
-  border: 1px #F3F4F8 solid;
-  border-radius: 8px;
-  max-height: 225px;
+  max-height: 175px;
 }
 .recipeTitle {
   padding-top: 1em;
   padding-bottom: .5em;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1em;
+  font-weight: bold;
   color: #6F6F6F;
 }
 .recipeLink a {
   text-decoration: none;
   color: #6F6F6F;
+  vertical-align: middle;
 }
 .card__face--back {
   background: #ffffff;
