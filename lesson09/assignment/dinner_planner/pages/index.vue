@@ -2,7 +2,7 @@
   <div class="jumbotron">
     <!-- created filter in main.js -->
         <h1 class="display-4">{{title}}</h1>
-        <nuxt-link to="/about" class="btn btn-light btn-lg" href="about.html" role="button">Learn more</nuxt-link>
+        <nuxt-link to="/suggested" class="btn btn-light btn-lg" href="about.html" role="button">Learn more</nuxt-link>
         <hr class="my-4">
         <blockquote class="blockquote text-center p-3">
           <p class="mb-0">{{quote}}</p>
@@ -20,8 +20,6 @@ export default {
       // change to uppercase using filter
       title: 'Dinner Planner',
       quote: 'A simple dinner planner app that puts hundreds of recipe ideas in your hands.',
-      author: 'George Carlin ',
-      source: 'Psychology Today'
     }
   }
 }

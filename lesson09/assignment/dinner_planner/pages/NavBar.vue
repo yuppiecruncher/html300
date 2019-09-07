@@ -6,16 +6,7 @@
         <div id="navbarNav" class="collapse navbar-collapse">
           <ul class="navbar-nav">
             <li class="nav-item pr-5">
-              <nuxt-link to="/about" class="nav-link">About</nuxt-link>
-            </li>
-            <li class="nav-item pr-5">
               <nuxt-link to="/suggested" class="nav-link">Suggested Recipes</nuxt-link>
-            </li>
-            <li class="nav-item pr-5">
-              <nuxt-link to="/checkout" class="nav-link">Search for Recipes</nuxt-link>
-            </li>
-            <li class="nav-item pr-5">
-              <nuxt-link to="/recipe" class="nav-link">Recipes</nuxt-link>
             </li>
           </ul>
         </div>
